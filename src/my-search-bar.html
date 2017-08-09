@@ -1,0 +1,49 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-search/paper-search-bar.html">
+<link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
+
+<dom-module id="search-bar">
+
+  <template>
+    <style>
+      /* shadow DOM styles go here */
+      :host {
+        display: inline-block;
+      }
+      /*iron-icon {
+        fill: var(--paper-search-filter, rgba(0,0,0,0));
+        stroke: var(--paper-search-clear, currentcolor);
+      }*/
+      :host([pressed]) iron-icon {
+        fill:  currentcolor;
+      }
+    </style>
+
+    <!-- shadow DOM goes here -->
+    <!-- <iron-icon icon="[[searchBar]]"></iron-icon> -->
+  </template>
+
+  <script>
+    class SearchBar extends paper-search-bar {
+      static get is() {
+        return 'search-bar';
+      }
+      static get properties() {
+        return {
+          pressed: {
+            disableFilterButton: true
+          },
+        }
+      }
+      // constructor() {
+      //   super();
+      //   Polymer.Gestures.addListener(this, 'tap', () => this.search());
+      // }
+      // search() {
+      //   this.pressed = !this.pressed;
+      // }
+    }
+    customElements.define(SearchBar.is, SearchBar);
+  </script>
+
+</dom-module>

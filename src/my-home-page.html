@@ -1,0 +1,29 @@
+
+<link rel="import" href="../bower_components/app-layout/app-grid/app-grid-style.html">
+
+<dom-module id="home-page">
+  <template>
+    <style include="app-grid-style">
+      :host {
+        --app-grid-columns: 3;
+        --app-grid-item-height: 100px;
+        --app-grid-expandible-item-columns: 3;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      /* Only the first item should expand */
+      .item:first-child {
+        @apply --app-grid-expandible-item;
+      }
+    </style>
+    <ul class="app-grid">
+      <li class="item">1</li>
+      <li class="item">2</li>
+      <li class="item">3</li>
+    </ul>
+  </template>
+</dom-module>
